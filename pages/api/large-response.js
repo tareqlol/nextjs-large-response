@@ -21,8 +21,5 @@ export default async function handler  (_req, res) {
     },
   ));
   console.log('request took ', Date.now() - time);
-  res.json({
-    dataSet1: {...data}, 
-    dataSet2: {...data},
-  });
+  res.json(data);
 }
