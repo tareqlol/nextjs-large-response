@@ -14,7 +14,8 @@ export default async function handler  (_req, res) {
   const data = (await fetch('https://api.fda.gov/food/enforcement.json?limit=1000').then(
     async (response) => {
       if (response.ok) {
-        return response.json();
+        const clone = response.clone();
+        return clone.json();
       }
       return Promise.reject(response);
     },
