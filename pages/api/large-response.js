@@ -9,6 +9,16 @@ export const config = {
 };
 
 export default async function handler  (_req, res) {
-  const fails = new Array(16385).fill('x');
-  res.json(fails);
+  const time = Date.now();
+  // almost 5.5MB of JSON
+  const data = (await fetch('https://api.fda.gov/food/enforcement.json?limit=1000').then(
+    async (response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      return Promise.reject(response);
+    },
+  ));
+  console.log('request took ', Date.now() - time);
+  res.json(data);
 }
