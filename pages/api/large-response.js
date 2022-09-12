@@ -21,10 +21,10 @@ export default async function handler  (_req, res) {
   ));
   console.log('request took ', Date.now() - time);
   res.json({
-    ...data, 
-    ...data, 
-    ...data, 
-    ...data, 
-    ...data, 
+    dataSet1: {...data}, 
+    dataSet2: {...data}, 
+    dataSet3: {...data}, 
+    dataSet4: {...data}, 
+    dataSet5: {...data}, 
   });
 }
